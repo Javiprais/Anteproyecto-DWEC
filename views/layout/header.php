@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questly</title>
     <link rel="stylesheet" href="public/css/style.css">
+    <link rel="icon" href="public/images/icons/achievement.svg">
 </head>
 
 <!-- HEADER -->

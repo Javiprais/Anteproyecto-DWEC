@@ -11,24 +11,12 @@
 
 <!-- HEADER -->
 <header class="header">
-    <div class="logo">
+    <div style="cursor:pointer;" onclick="window.location.href='index.php'" class="logo">
         <span class="logo-icon"><img src="public/images/icons/achievement.svg" alt="Icono"></span>
         <span class="logo-text">QUESTLY</span>
     </div>
-    <!-- Se ocultarán al estar en una página que no sea la landing page (index.php) -->
-    <?php
-    if (isset($_GET['page'])) {
-        $page = $_GET['page'];
-    } else {
-        $page = 'index';
-    }
-    if ($page === 'index') {
-    ?>
-        <div class="auth-buttons">
-            <a href="index.php?page=login" class="btn-login">Iniciar sesión</a>
-            <a href="index.php?page=register" class="btn-register">Registrarse</a>
-        </div>
-    <?php
-    }
-    ?>
+    <div class="auth-buttons">
+        <a onclick="abrirModal('login')" class="btn-login">Iniciar sesión</a>
+        <a onclick="abrirModal('registro')" class="btn-register">Registrarse</a>
+    </div>
 </header>

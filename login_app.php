@@ -1,10 +1,16 @@
 <?php
-$conexion = new mysqli("localhost", "root", "", "login_app");
+$host = 'localhost';
+$username = 'proyecto';
+$dbname = 'proyecto';
+$password = 'questly2025';
+
+$conexion = new mysqli("$host", "$username", "$password", "$dbname");
 if ($conexion->connect_error) die("Error de conexión");
 
 $vista = $_GET['vista'] ?? 'login';
 
-function mostrarLogin($conexion) {
+function mostrarLogin($conexion)
+{
     if (isset($_POST['login'])) {
         $email = $_POST['email'];
         $pass = $_POST['password'];
@@ -34,7 +40,8 @@ function mostrarLogin($conexion) {
     HTML;
 }
 
-function mostrarRegistro($conexion) {
+function mostrarRegistro($conexion)
+{
     if (isset($_POST['registro'])) {
         $email = $_POST['email'];
         $nombre = $_POST['nombre'];
@@ -71,7 +78,8 @@ function mostrarRegistro($conexion) {
     HTML;
 }
 
-function mostrarBaja($conexion) {
+function mostrarBaja($conexion)
+{
     if (isset($_POST['baja'])) {
         $email = $_POST['email'];
         $nombre = $_POST['nombre'];
@@ -101,18 +109,15 @@ function mostrarBaja($conexion) {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-<head><title>Aplicación Login</title></head>
-<body>
+
 <?php
 if ($vista === 'registro') {
     mostrarRegistro($conexion);
 } elseif ($vista === 'baja') {
     mostrarBaja($conexion);
-} else {
+} elseif ($vista === 'login') {
     mostrarLogin($conexion);
 }
 ?>
-</body>
+
 </html>

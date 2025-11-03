@@ -1,3 +1,5 @@
+
+
 <?php
 $host = 'localhost';
 $username = 'proyecto';
@@ -32,11 +34,11 @@ function mostrarLogin($conexion)
     echo <<<HTML
     <h2>Login</h2>
     <form method="POST">
-        Email: <input type="email" name="email" required><br>
-        Contraseña: <input type="password" name="password" required><br>
+        <label for="email">Email: </label><input type="email" name="email" required><br>
+        <label for="password">Contraseña: </label><input type="password" name="password" required><br>
         <input type="submit" name="login" value="Entrar">
     </form>
-    <p><a href="?vista=registro">Registrarse</a> | <a href="?vista=baja">Darse de baja</a></p>
+    <!--<p><a href="?vista=registro">Registrarse</a> | <a href="?vista=baja">Darse de baja</a></p>-->
     HTML;
 }
 
@@ -65,16 +67,17 @@ function mostrarRegistro($conexion)
 
     echo <<<HTML
     <h2>Registro</h2>
+
     <form method="POST">
-        Email: <input type="email" name="email" required><br>
-        Nombre: <input type="text" name="nombre" required><br>
-        Apellidos: <input type="text" name="apellidos" required><br>
-        Fecha de nacimiento: <input type="date" name="fecha_nacimiento" required><br>
-        Contraseña: <input type="password" name="password" required><br>
-        Repetir contraseña: <input type="password" name="repetir_password" required><br>
+        <label for="email">Email:</label> <input type="email" name="email" required><br>
+        <label for="nombre">Nombre:</label> <input type="text" name="nombre" required><br>
+        <label for="apellidos">Apellidos:</label> <input type="text" name="apellidos" required><br>
+        <label for="fecha_nacimiento">Fecha de nacimiento:</label> <input type="date" name="fecha_nacimiento" required><br>
+        <label for="password">Contraseña:</label> <input type="password" name="password" required><br>
+        <label for="repetir_password">Repetir contraseña:</label> <input type="password" name="repetir_password" required><br>
         <input type="submit" name="registro" value="Registrarse">
     </form>
-    <p><a href="?vista=login">Volver al login</a> | <a href="?vista=baja">Darse de baja</a></p>
+    <!--<p><a href="?vista=login">Volver al login</a> | <a href="?vista=baja">Darse de baja</a></p>-->
     HTML;
 }
 
@@ -99,9 +102,9 @@ function mostrarBaja($conexion)
     echo <<<HTML
     <h2>Darse de baja</h2>
     <form method="POST">
-        Email: <input type="email" name="email" required><br>
-        Nombre: <input type="text" name="nombre" required><br>
-        Contraseña: <input type="password" name="password" required><br>
+        <label for="email">Email:</label><input type="email" name="email" required><br>
+        <label for="nombre">Nombre: </label><input type="text" name="nombre" required><br>
+        <label for="password">Contraseña: </label><input type="password" name="password" required><br>
         <input type="submit" name="baja" value="Eliminar cuenta">
     </form>
     <p><a href="?vista=login">Volver al login</a> | <a href="?vista=registro">Registrarse</a></p>

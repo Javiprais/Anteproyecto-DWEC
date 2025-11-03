@@ -4,10 +4,8 @@
 
  <body>
      <!-- LANDING PAGE -->
-     <div class="modal" id="miModal">
-         <div class="modal-content">
-             <iframe id="iframeModal" src="login_app.php" width="100%" height="100%" frameborder="0"></iframe>
-         </div>
+     <div class="modal" id="miModal" style="display: none;">
+         <div class="modal-content" id="contenidoModal"></div>
      </div>
      <section class="hero">
          <div class="hero-content">
@@ -25,13 +23,17 @@
 
      <script>
          function abrirModal(vista) {
-             const iframe = document.getElementById('iframeModal');
-             iframe.src = 'login_app.php?vista=' + vista; // 👈 cambiamos la vista
-             document.getElementById('miModal').style.display = 'flex';
+             fetch('login_app.php?vista=' + vista)
+                 .then(r => r.text())
+                 .then(html => {
+                     document.getElementById('contenidoModal').innerHTML = html;
+                     document.getElementById('miModal').style.display = 'flex';
+                 });
          }
 
          function cerrarModal() {
              document.getElementById('miModal').style.display = 'none';
+             document.getElementById('contenidoModal').innerHTML = '';
          }
 
          window.onclick = function(event) {
